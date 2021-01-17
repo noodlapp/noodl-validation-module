@@ -28396,6 +28396,19 @@
                         "dynamicports": [],
                         "children": [
                             {
+                                "id": "0137dd1a-f1c3-8fd1-1535-2b0bc607eb48",
+                                "type": "Text",
+                                "x": 25.30977484488261,
+                                "y": 20.763703867002107,
+                                "parameters": {
+                                    "text": "Best character vote",
+                                    "textStyle": "H3 Text"
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
                                 "id": "d9396429-732c-009c-84e9-c23d8cd73ea9",
                                 "type": "/#Simple Design System/Selector",
                                 "x": 20,
