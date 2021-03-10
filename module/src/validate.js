@@ -22,6 +22,7 @@ const ValidateNode = Noodl.defineNode({
 	name:'noodl.net.validate',
 	displayName:'Validate',
 	color:'green',
+	docs:'https://docs.noodl.net/#/modules/validation/validate',
 	inputs:{
 		Schema:{
 			group:'General',
