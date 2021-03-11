@@ -2786,8 +2786,8 @@
                         "id": "277d61ca-839f-3d03-86d9-530b17a986a1",
                         "type": "noodl.net.validate",
                         "label": "Validate family before enabling character",
-                        "x": 533.4474027466902,
-                        "y": 128.45041886181656,
+                        "x": 460.3524652370786,
+                        "y": 157.11234750936185,
                         "parameters": {
                             "Schema": "schema({\n    Family:string().required(),\n})"
                         },
@@ -3243,8 +3243,8 @@
                         "id": "04be58bb-f803-7d95-a635-a584f5a4d450",
                         "type": "Switch",
                         "label": "Enable validation on submit",
-                        "x": 602.871272860544,
-                        "y": 493.9891770814482,
+                        "x": 571.1639974673913,
+                        "y": 428.3879176473392,
                         "parameters": {},
                         "ports": [],
                         "dynamicports": [],
@@ -3321,8 +3321,8 @@
                         "id": "2ed7819a-cf27-43cc-a889-7d89b7c76739",
                         "type": "Condition",
                         "label": "Only save if valid",
-                        "x": 997.6847900461851,
-                        "y": 461.70102756594673,
+                        "x": 1000.9648530178908,
+                        "y": 484.6614683678849,
                         "parameters": {},
                         "ports": [],
                         "dynamicports": [],
@@ -3331,8 +3331,8 @@
                     {
                         "id": "f24cd9e1-4aed-9ccd-ce47-00b718c8d510",
                         "type": "Inverter",
-                        "x": 261.29292017432357,
-                        "y": 244.35713374705375,
+                        "x": 241.3884645203927,
+                        "y": 228.43691401000117,
                         "parameters": {},
                         "ports": [],
                         "dynamicports": [],
@@ -27061,6 +27061,558 @@
                 "canvasSize": {
                     "width": "371px",
                     "height": "auto"
+                }
+            }
+        },
+        {
+            "name": "/Simple example",
+            "id": "ed50c1bd-ab9b-7ed2-33d9-f8467884e28c",
+            "graph": {
+                "connections": [
+                    {
+                        "fromId": "fc5b065d-2035-380c-f968-3ade6725b244",
+                        "fromProperty": "err-Name",
+                        "toId": "1fbbd03e-356f-09f3-e972-684bda9239bb",
+                        "toProperty": "Text"
+                    },
+                    {
+                        "fromId": "8881e547-4a79-9309-1b84-094540fdfd95",
+                        "fromProperty": "Text",
+                        "toId": "fc5b065d-2035-380c-f968-3ade6725b244",
+                        "toProperty": "prop-Name"
+                    }
+                ],
+                "roots": [
+                    {
+                        "id": "f7bdcf77-fe6d-5bb1-f70d-c40a977c8c64",
+                        "type": "Group",
+                        "x": 0,
+                        "y": 0,
+                        "parameters": {
+                            "paddingTop": {
+                                "value": 10,
+                                "unit": "px"
+                            },
+                            "paddingLeft": {
+                                "value": 10,
+                                "unit": "px"
+                            },
+                            "paddingRight": {
+                                "value": 10,
+                                "unit": "px"
+                            }
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": [
+                            {
+                                "id": "8881e547-4a79-9309-1b84-094540fdfd95",
+                                "type": "/#Simple Design System/Input Field",
+                                "x": 20,
+                                "y": 46,
+                                "parameters": {
+                                    "Label": "Your name"
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "1fbbd03e-356f-09f3-e972-684bda9239bb",
+                                "type": "/#Simple Design System/Error",
+                                "x": 20,
+                                "y": 128,
+                                "parameters": {
+                                    "Always Show": false
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fc5b065d-2035-380c-f968-3ade6725b244",
+                        "type": "noodl.net.validate",
+                        "x": 313.3628750749165,
+                        "y": 49.40135331572844,
+                        "parameters": {
+                            "Schema": "schema({\n    Name:string().required(\"Must provide name.\")\n})"
+                        },
+                        "ports": [],
+                        "dynamicports": [
+                            {
+                                "name": "prop-Name",
+                                "displayName": "Name",
+                                "group": "Properties",
+                                "type": "*",
+                                "plug": "input/output",
+                                "index": 3
+                            },
+                            {
+                                "name": "err-Name",
+                                "displayName": "Name",
+                                "editorName": "Name Error",
+                                "group": "Errors",
+                                "type": "string",
+                                "plug": "output",
+                                "index": 4
+                            },
+                            {
+                                "name": "haserr-Name",
+                                "editorName": "Name Has Error",
+                                "displayName": "Name",
+                                "group": "Has Error",
+                                "type": "boolean",
+                                "plug": "output",
+                                "index": 5
+                            },
+                            {
+                                "name": "enabled-Name",
+                                "editorName": "Name Enabled",
+                                "displayName": "Name",
+                                "group": "Property Enabled",
+                                "type": "boolean",
+                                "plug": "input",
+                                "default": true,
+                                "index": 6
+                            },
+                            {
+                                "name": "enable-Name",
+                                "editorName": "Enable Name",
+                                "displayName": "Enable Name",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 7
+                            },
+                            {
+                                "name": "disable-Name",
+                                "editorName": "Disable Name",
+                                "displayName": "Disable Name",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 8
+                            }
+                        ],
+                        "children": []
+                    }
+                ]
+            },
+            "metadata": {
+                "canvasPos": {
+                    "x": 613.3937645222253,
+                    "y": -7.975510111474633
+                },
+                "canvasSize": {
+                    "width": "386px",
+                    "height": "206px"
+                }
+            }
+        },
+        {
+            "name": "/Sign up form simple",
+            "id": "065eb9c5-661a-dc93-eb78-1ee8ff299dd1",
+            "graph": {
+                "connections": [
+                    {
+                        "fromId": "aa0cabfe-1677-31bc-b093-726ac2b5092a",
+                        "fromProperty": "Text",
+                        "toId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "toProperty": "prop-Name"
+                    },
+                    {
+                        "fromId": "299edcf9-66c8-0040-09ad-fb3336b46edd",
+                        "fromProperty": "Text",
+                        "toId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "toProperty": "prop-Email"
+                    },
+                    {
+                        "fromId": "4e7dae7c-52ef-a5c1-5c92-0874a9b2eb3f",
+                        "fromProperty": "Click",
+                        "toId": "dac1b8ea-b5cf-ec31-0878-da06cc0f131e",
+                        "toProperty": "on"
+                    },
+                    {
+                        "fromId": "dac1b8ea-b5cf-ec31-0878-da06cc0f131e",
+                        "fromProperty": "state",
+                        "toId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "toProperty": "Enabled"
+                    },
+                    {
+                        "fromId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "fromProperty": "IsValid",
+                        "toId": "fb355881-b7b5-e1b5-6274-99e092471f4c",
+                        "toProperty": "condition"
+                    },
+                    {
+                        "fromId": "4e7dae7c-52ef-a5c1-5c92-0874a9b2eb3f",
+                        "fromProperty": "Click",
+                        "toId": "fb355881-b7b5-e1b5-6274-99e092471f4c",
+                        "toProperty": "eval"
+                    },
+                    {
+                        "fromId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "fromProperty": "err-Name",
+                        "toId": "e8acab72-9349-8586-59e3-3e36b2988a35",
+                        "toProperty": "Text"
+                    },
+                    {
+                        "fromId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "fromProperty": "err-Email",
+                        "toId": "f48c9074-0a4b-5f12-5a4c-f9a357e6dcc3",
+                        "toProperty": "Text"
+                    },
+                    {
+                        "fromId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "fromProperty": "prop-Name",
+                        "toId": "8cb9ce89-5a32-d221-9aff-6db22f927801",
+                        "toProperty": "Name"
+                    },
+                    {
+                        "fromId": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "fromProperty": "prop-Email",
+                        "toId": "8cb9ce89-5a32-d221-9aff-6db22f927801",
+                        "toProperty": "Email"
+                    },
+                    {
+                        "fromId": "fb355881-b7b5-e1b5-6274-99e092471f4c",
+                        "fromProperty": "ontrue",
+                        "toId": "8cb9ce89-5a32-d221-9aff-6db22f927801",
+                        "toProperty": "Do"
+                    }
+                ],
+                "roots": [
+                    {
+                        "id": "6a1f4af9-3a65-c44e-5e87-3837b57e47a3",
+                        "type": "Group",
+                        "x": 502.4918143826591,
+                        "y": 216.36621626812988,
+                        "parameters": {
+                            "paddingLeft": {
+                                "value": 10,
+                                "unit": "px"
+                            },
+                            "paddingTop": {
+                                "value": 10,
+                                "unit": "px"
+                            },
+                            "paddingRight": {
+                                "value": 10,
+                                "unit": "px"
+                            },
+                            "paddingBottom": {
+                                "value": 10,
+                                "unit": "px"
+                            }
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": [
+                            {
+                                "id": "aa0cabfe-1677-31bc-b093-726ac2b5092a",
+                                "type": "/#Simple Design System/Input Field",
+                                "label": "Name",
+                                "x": 20,
+                                "y": 46,
+                                "parameters": {
+                                    "Label": "Name"
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "e8acab72-9349-8586-59e3-3e36b2988a35",
+                                "type": "/#Simple Design System/Error",
+                                "x": 20,
+                                "y": 141,
+                                "parameters": {
+                                    "Always Show": false
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "299edcf9-66c8-0040-09ad-fb3336b46edd",
+                                "type": "/#Simple Design System/Input Field",
+                                "label": "Email",
+                                "x": 20,
+                                "y": 223,
+                                "parameters": {
+                                    "Label": "Email"
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "f48c9074-0a4b-5f12-5a4c-f9a357e6dcc3",
+                                "type": "/#Simple Design System/Error",
+                                "x": 20,
+                                "y": 318,
+                                "parameters": {
+                                    "Always Show": false
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "4e7dae7c-52ef-a5c1-5c92-0874a9b2eb3f",
+                                "type": "/#Simple Design System/Button - Primary",
+                                "x": 20,
+                                "y": 400,
+                                "parameters": {
+                                    "Label Text": "SAVE",
+                                    "Include Icon": false
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "5e91990e-b6a6-fe90-3ccb-006571736a5b",
+                        "type": "noodl.net.validate",
+                        "x": 211.02201849147167,
+                        "y": 245.9760111797816,
+                        "parameters": {
+                            "Schema": "schema({\n    Name:string().required('Must provide name'),\n    Email:string().required('Must provide email').email('Must be valid email')\n})"
+                        },
+                        "ports": [],
+                        "dynamicports": [
+                            {
+                                "name": "prop-Name",
+                                "displayName": "Name",
+                                "group": "Properties",
+                                "type": "*",
+                                "plug": "input/output",
+                                "index": 3
+                            },
+                            {
+                                "name": "err-Name",
+                                "displayName": "Name",
+                                "editorName": "Name Error",
+                                "group": "Errors",
+                                "type": "string",
+                                "plug": "output",
+                                "index": 4
+                            },
+                            {
+                                "name": "haserr-Name",
+                                "editorName": "Name Has Error",
+                                "displayName": "Name",
+                                "group": "Has Error",
+                                "type": "boolean",
+                                "plug": "output",
+                                "index": 5
+                            },
+                            {
+                                "name": "enabled-Name",
+                                "editorName": "Name Enabled",
+                                "displayName": "Name",
+                                "group": "Property Enabled",
+                                "type": "boolean",
+                                "plug": "input",
+                                "default": true,
+                                "index": 6
+                            },
+                            {
+                                "name": "enable-Name",
+                                "editorName": "Enable Name",
+                                "displayName": "Enable Name",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 7
+                            },
+                            {
+                                "name": "disable-Name",
+                                "editorName": "Disable Name",
+                                "displayName": "Disable Name",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 8
+                            },
+                            {
+                                "name": "prop-Email",
+                                "displayName": "Email",
+                                "group": "Properties",
+                                "type": "*",
+                                "plug": "input/output",
+                                "index": 9
+                            },
+                            {
+                                "name": "err-Email",
+                                "displayName": "Email",
+                                "editorName": "Email Error",
+                                "group": "Errors",
+                                "type": "string",
+                                "plug": "output",
+                                "index": 10
+                            },
+                            {
+                                "name": "haserr-Email",
+                                "editorName": "Email Has Error",
+                                "displayName": "Email",
+                                "group": "Has Error",
+                                "type": "boolean",
+                                "plug": "output",
+                                "index": 11
+                            },
+                            {
+                                "name": "enabled-Email",
+                                "editorName": "Email Enabled",
+                                "displayName": "Email",
+                                "group": "Property Enabled",
+                                "type": "boolean",
+                                "plug": "input",
+                                "default": true,
+                                "index": 12
+                            },
+                            {
+                                "name": "enable-Email",
+                                "editorName": "Enable Email",
+                                "displayName": "Enable Email",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 13
+                            },
+                            {
+                                "name": "disable-Email",
+                                "editorName": "Disable Email",
+                                "displayName": "Disable Email",
+                                "group": "Actions",
+                                "type": "signal",
+                                "plug": "input",
+                                "index": 14
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "id": "dac1b8ea-b5cf-ec31-0878-da06cc0f131e",
+                        "type": "Switch",
+                        "label": "Turn on validation on save",
+                        "x": 210.46514823419932,
+                        "y": 448.42130899777806,
+                        "parameters": {},
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": []
+                    },
+                    {
+                        "id": "fb355881-b7b5-e1b5-6274-99e092471f4c",
+                        "type": "Condition",
+                        "label": "Only save if valid",
+                        "x": 209.9844971383877,
+                        "y": 617.4134687994382,
+                        "parameters": {},
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": []
+                    },
+                    {
+                        "id": "8cb9ce89-5a32-d221-9aff-6db22f927801",
+                        "type": "/Save User",
+                        "x": -179.03858663428548,
+                        "y": 390.13267852253125,
+                        "parameters": {},
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": []
+                    }
+                ]
+            },
+            "metadata": {
+                "canvasPos": {
+                    "x": 1037.176525905611,
+                    "y": -14.698782472091466
+                }
+            }
+        },
+        {
+            "name": "/Save User",
+            "id": "3b138b65-f684-6adb-7309-672ef0805e14",
+            "graph": {
+                "connections": [],
+                "roots": [
+                    {
+                        "id": "3c452b08-c3ff-ae26-a3d2-f084941326bf",
+                        "type": "Component Inputs",
+                        "x": 0,
+                        "y": 0,
+                        "parameters": {},
+                        "ports": [
+                            {
+                                "name": "Do",
+                                "plug": "output",
+                                "type": "*",
+                                "index": 0
+                            },
+                            {
+                                "name": "Name",
+                                "plug": "output",
+                                "type": {
+                                    "name": "*"
+                                },
+                                "index": 1
+                            },
+                            {
+                                "name": "Email",
+                                "plug": "output",
+                                "type": {
+                                    "name": "*"
+                                },
+                                "index": 2
+                            },
+                            {
+                                "name": "Password",
+                                "plug": "output",
+                                "type": {
+                                    "name": "*"
+                                },
+                                "index": 3
+                            }
+                        ],
+                        "dynamicports": [],
+                        "children": []
+                    },
+                    {
+                        "id": "a416b57f-5fa2-7913-4b50-3970763f753f",
+                        "type": "Component Outputs",
+                        "x": 300,
+                        "y": 0,
+                        "parameters": {},
+                        "ports": [
+                            {
+                                "name": "Success",
+                                "plug": "input",
+                                "type": "*",
+                                "index": 0
+                            },
+                            {
+                                "name": "Failure",
+                                "plug": "input",
+                                "type": "*",
+                                "index": 1
+                            }
+                        ],
+                        "dynamicports": [],
+                        "children": []
+                    }
+                ]
+            },
+            "metadata": {
+                "canvasPos": {
+                    "x": 203.49075318912372,
+                    "y": -14.698782472091466
                 }
             }
         }

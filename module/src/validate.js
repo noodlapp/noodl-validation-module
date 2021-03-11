@@ -17,6 +17,12 @@ function _createSignal(args) {
     };
 }
 
+const _defaultSchema = "schema({\n" +
+"// Name:string().required('Must provide name.')\n" +
+"// Email:string().email('Not valid email.')\n" +
+"// Age:number().min(18,'Must be older than 18')\n" +
+"})\n";
+
 const ValidateNode = Noodl.defineNode({
 	category:'Utilities',
 	name:'noodl.net.validate',
@@ -26,7 +32,8 @@ const ValidateNode = Noodl.defineNode({
 	inputs:{
 		Schema:{
 			group:'General',
-			type:{name:'string',codeeditor:'javascript',allowEditOnly:true}
+			type:{name:'string',codeeditor:'javascript',allowEditOnly:true},
+			default:_defaultSchema,
 		},
 		Enabled:{
 			group:'General',
@@ -37,6 +44,7 @@ const ValidateNode = Noodl.defineNode({
 	outputs:{
 		IsValid:{
 			type:'boolean',
+			group:'General',
 			displayName:'Is Valid'
 		}
 	},
@@ -106,9 +114,10 @@ const ValidateNode = Noodl.defineNode({
 				}
 
 				if(this.schema !== undefined) {
-					yup.object().shape(this.schema).validate(this.propertyValues,{abortEarly:false}).then((cast) => {
-                        // The object was successfully validated
+					try {
+						let cast = yup.object().shape(this.schema).validateSync(this.propertyValues,{abortEarly:false});
 
+						// The object was successfully validated
 						for(var key in this.schema) { // Clear errors
 							this.hasError[key] = false;
 							this.errors[key] = "";
@@ -123,33 +132,32 @@ const ValidateNode = Noodl.defineNode({
 							this.propertyOutputValues[key] = cast[key];
 							if(this.hasOutput('prop-' + key)) this.flagOutputDirty('prop-' + key);
 						}
-					})
-					.catch((errs) => {
-                        // There was an error when validating
-						this.outputs.IsValid = false;
-						this.flagOutputDirty('IsValid');
-
-						for(var key in this.schema) {
-							this.hasError[key] = false;
-							this.errors[key] = "";
-						}
-
-						for(var prop in errs.inner) {
-                            var err = errs.inner[prop];
-                            
-                            if(this.propertyDisabled[err.path]) continue; // Don't output errors for disabled properties
-
-							this.errors[err.path] = err.errors.join(' ');
-							this.hasError[err.path] = true;
-						}
-
-						for(var key in this.schema) {
-							if(this.hasOutput('err-' + key)) this.flagOutputDirty('err-' + key);
-
-							if(this.hasOutput('haserr-' + key)) this.flagOutputDirty('haserr-' + key);
-						}
-
-					})
+					}
+					catch(errs) {
+						 // There was an error when validating
+						 this.outputs.IsValid = false;
+						 this.flagOutputDirty('IsValid');
+ 
+						 for(var key in this.schema) {
+							 this.hasError[key] = false;
+							 this.errors[key] = "";
+						 }
+ 
+						 for(var prop in errs.inner) {
+							 var err = errs.inner[prop];
+							 
+							 if(this.propertyDisabled[err.path]) continue; // Don't output errors for disabled properties
+ 
+							 this.errors[err.path] = err.errors.join(' ');
+							 this.hasError[err.path] = true;
+						 }
+ 
+						 for(var key in this.schema) {
+							 if(this.hasOutput('err-' + key)) this.flagOutputDirty('err-' + key);
+ 
+							 if(this.hasOutput('haserr-' + key)) this.flagOutputDirty('haserr-' + key);
+						 }
+					}
 				}
 			}
 		},
